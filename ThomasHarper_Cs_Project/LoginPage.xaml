@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThomasHarper_Cs_Project"
         mc:Ignorable="d"
-        Title="LoginPage" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="LoginPage" Height="500" Width="400" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Login"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   />
+        <materialDesign:PackIcon Kind="Account" 
+                                 Height="150"
+                                 Width="150"
+                                 Grid.Row="1"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"/>
+
+        <TextBox
+            Name="tbUserName"
+            Grid.Row="2"
+            Height="25"
+            Width="200"
+            
+            />
+        <PasswordBox
+            Name="tbPassword"
+            Grid.Row="3"
+            Height="25"
+            Width="200"
+            />
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                Name="btnLogin"
+                Click="btnLogin_Click"
+                Width="100"
+                Content="Login"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                HorizontalAlignment="Right"
+                Margin="5"/>
+            <Button
+                Grid.Column="1"
+                Name="btnClear"
+                Click="btnClear_Click"
+                Width="100"
+                Content="Clear"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                HorizontalAlignment="Left"
+                Margin="5"/>
+
+        </Grid>
     </Grid>
 </Window>
