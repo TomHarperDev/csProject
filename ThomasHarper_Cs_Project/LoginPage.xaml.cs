@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ThomasHarper_Cs_Project
 {
@@ -25,11 +26,7 @@ namespace ThomasHarper_Cs_Project
         {
             InitializeComponent();
 
-            string test = "hello";
-
-            Hash hashed = test;
-
-            MessageBox.Show(Convert.ToString(hashed));
+            MessageBox.Show(Hash("hello"));
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -44,13 +41,19 @@ namespace ThomasHarper_Cs_Project
             tbUserName.Focus();
         }
 
-        private string Hash()
+        private string Hash(string message)
         {
-            string test = "hello";
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(message));
 
-            int hashed = test.GetHashCode();
-
-            return "";
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
