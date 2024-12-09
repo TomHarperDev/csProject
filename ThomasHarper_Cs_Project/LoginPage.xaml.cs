@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,12 @@ namespace ThomasHarper_Cs_Project
         public LoginPage()
         {
             InitializeComponent();
+
+            string test = "hello";
+
+            Hash hashed = test;
+
+            MessageBox.Show(Convert.ToString(hashed));
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -31,9 +39,18 @@ namespace ThomasHarper_Cs_Project
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            tbUserName.Clear();
+            tbPassword.Clear();
+            tbUserName.Focus();
         }
 
-      
+        private string Hash()
+        {
+            string test = "hello";
+
+            int hashed = test.GetHashCode();
+
+            return "";
+        }
     }
 }

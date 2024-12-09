@@ -33,13 +33,14 @@
             Grid.Row="2"
             Height="25"
             Width="200"
-            
+            materialDesign:HintAssist.Hint="Username"
             />
         <PasswordBox
             Name="tbPassword"
             Grid.Row="3"
             Height="25"
             Width="200"
+            materialDesign:HintAssist.Hint="Password"
             />
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
@@ -54,6 +55,8 @@
                 materialDesign:ButtonAssist.CornerRadius="10"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 HorizontalAlignment="Right"
+                Background="Green"
+                BorderBrush="Green"
                 Margin="5"/>
             <Button
                 Grid.Column="1"
@@ -64,6 +67,8 @@
                 materialDesign:ButtonAssist.CornerRadius="10"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 HorizontalAlignment="Left"
+                Background="Red"
+                BorderBrush="Red"
                 Margin="5"/>
 
         </Grid>
