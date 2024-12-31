@@ -26,12 +26,39 @@ namespace ThomasHarper_Cs_Project
         {
             InitializeComponent();
 
-            MessageBox.Show(Hash("hello"));
+        }
+
+        private bool usernameValidation()
+        {
+            if (tbUserName.Text.Length <= 15)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool passwordValidation()
+        {
+            //whilst the database stores passwords at a length of 64 characters, this is only after being hashed so the user just needs to enter in a suitable password length
+            if (tbPassword.Password.Length <= 15)
+            {
+                if (tbPassword.Password.Any(char.IsUpper))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            string unHashedPassword = tbPassword.Password;
+            string hashedPassword = Hash(unHashedPassword);
 
+            if (usernameValidation() && passwordValidation())
+            {
+                // code to log the user in
+            }
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
