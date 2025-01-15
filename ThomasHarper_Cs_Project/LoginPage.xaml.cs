@@ -26,8 +26,6 @@ namespace ThomasHarper_Cs_Project
         public LoginPage()
         {
             InitializeComponent();
-
-            
         }
 
         private bool usernameValidation()
