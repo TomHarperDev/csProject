@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
@@ -26,6 +27,7 @@ namespace ThomasHarper_Cs_Project
         {
             InitializeComponent();
 
+            
         }
 
         private bool usernameValidation()
@@ -58,6 +60,20 @@ namespace ThomasHarper_Cs_Project
             if (usernameValidation() && passwordValidation())
             {
                 // code to log the user in
+                using (var database = new Entities())
+                {
+                    var databaseQuery = database.tblUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
+                    && user.Password == Hash(tbPassword.Password));
+
+                    if (!databaseQuery == null)
+                    {
+                        //once the user has been logged in, redirect them
+                        this.Close();
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+
+                    }
+                }
             }
         }
 
