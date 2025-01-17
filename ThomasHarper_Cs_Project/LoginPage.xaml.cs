@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
@@ -55,23 +56,39 @@ namespace ThomasHarper_Cs_Project
             string unHashedPassword = tbPassword.Password;
             string hashedPassword = Hash(unHashedPassword);
 
+
             if (usernameValidation() && passwordValidation())
             {
                 // code to log the user in
-                using (var database = new Entities())
+                try
                 {
-                    var databaseQuery = database.tblUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
-                    && user.Password == Hash(tbPassword.Password));
-
-                    if (!databaseQuery == null)
+                    using (var database = new CargoHubEntities())
                     {
-                        //once the user has been logged in, redirect them
-                        this.Close();
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
 
+                        var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
+                        && user.UserPassword == hashedPassword);
+
+                        if (databaseQuery != null)
+                        {
+                            //once the user has been logged in, redirect them
+                            MainWindow mainWindow = new MainWindow();
+                            mainWindow.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error );
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Userame must be less than 16 characters \nPassword must be less than 16 characters and have one uppercase character","Credentials entered are invalid", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
