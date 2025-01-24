@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThomasHarper_Cs_Project"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <!--nav bar-->
+        <Grid Background="#222222">
+            <StackPanel>
+                <!--home-->
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Home" HorizontalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Home" Foreground="White" Grid.Column="1"/>
+                </Grid>
+
+                <!--Products-->
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Database" HorizontalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Products" Foreground="White" Grid.Column="1"/>
+                </Grid>
+
+                <!--Admin-->
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Administrator" HorizontalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Admin" Foreground="White" Grid.Column="1"/>
+                </Grid>
+
+                <!--Task-->
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="TaskAdd" HorizontalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Task" Foreground="White" Grid.Column="1"/>
+                </Grid>
+
+                <!--Logout-->
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Logout" HorizontalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Logout" Foreground="White" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
         
     </Grid>
 </Window>
