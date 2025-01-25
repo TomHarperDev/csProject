@@ -16,58 +16,72 @@
         
         <!--nav bar-->
         <Grid Background="#222222">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <StackPanel>
                 <!--home-->
-                <Grid Margin="0,10,0,0">
+                <Grid Margin="0,10,0,0" Height="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Home" HorizontalAlignment="Center" Foreground="White"/>
                     <TextBlock Text="Home" Foreground="White" Grid.Column="1"/>
+                    <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+                            Name="btnHome" Click="btnHome_Click"/>
                 </Grid>
 
                 <!--Products-->
-                <Grid Margin="0,10,0,0">
+                <Grid Margin="0,10,0,0" Height="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Database" HorizontalAlignment="Center" Foreground="White"/>
                     <TextBlock Text="Products" Foreground="White" Grid.Column="1"/>
+                    <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+                            Name="btnProducts" Click="btnProducts_Click"/>
                 </Grid>
 
                 <!--Admin-->
-                <Grid Margin="0,10,0,0">
+                <Grid Margin="0,10,0,0" Height="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Administrator" HorizontalAlignment="Center" Foreground="White"/>
                     <TextBlock Text="Admin" Foreground="White" Grid.Column="1"/>
+                    <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+                            Name="btnAdmin" Click="btnAdmin_Click"/>
                 </Grid>
 
                 <!--Task-->
-                <Grid Margin="0,10,0,0">
+                <Grid Margin="0,10,0,0" Height="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="TaskAdd" HorizontalAlignment="Center" Foreground="White"/>
                     <TextBlock Text="Task" Foreground="White" Grid.Column="1"/>
+                    <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+                            Name="btnTask" Click="btnTask_Click"/>
                 </Grid>
 
                 <!--Logout-->
-                <Grid Margin="0,10,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.3*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Logout" HorizontalAlignment="Center" Foreground="White"/>
-                    <TextBlock Text="Logout" Foreground="White" Grid.Column="1"/>
-                </Grid>
+               
             </StackPanel>
         </Grid>
-        
+        <Grid Margin="0,10,0,0" Height="20" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:PackIcon Kind="Logout" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Logout" Foreground="White" Grid.Column="1"/>
+            <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+             Name="btnLogout" Click="btnLogout_Click"/>
+        </Grid>
     </Grid>
 </Window>

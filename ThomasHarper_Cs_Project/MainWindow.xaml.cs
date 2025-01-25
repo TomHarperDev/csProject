@@ -24,5 +24,30 @@ namespace ThomasHarper_Cs_Project
         {
             InitializeComponent();
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnProducts_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
