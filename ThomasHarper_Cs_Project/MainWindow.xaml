@@ -83,5 +83,10 @@
             <Button Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
              Name="btnLogout" Click="btnLogout_Click"/>
         </Grid>
+
+
+        <Grid Grid.Column="1" Name="parentGrid">
+            
+        </Grid>
     </Grid>
 </Window>

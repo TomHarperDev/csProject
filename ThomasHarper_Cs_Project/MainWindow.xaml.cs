@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ThomasHarper_Cs_Project.Views;
+
+
 
 namespace ThomasHarper_Cs_Project
 {
@@ -23,6 +26,8 @@ namespace ThomasHarper_Cs_Project
         public MainWindow()
         {
             InitializeComponent();
+            Views.EmployeeTasks newTask = new Views.EmployeeTasks();
+            parentGrid.Children.Add(newTask);
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
