@@ -79,6 +79,9 @@
     <Compile Include="Views\EmployeeTasks.xaml.cs">
       <DependentUpon>EmployeeTasks.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubmitTask.xaml.cs">
+      <DependentUpon>SubmitTask.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +128,10 @@
     <Page Include="Views\EmployeeTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubmitTask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -16,25 +16,25 @@
 
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                                       
+
 
                     <!--filter-->
 
                     <!--name-->
                     <TextBlock Text="Name:" VerticalAlignment="Center"
-                               FontSize="20" Width="75"/>
+                            FontSize="20" Width="75"/>
                     <TextBox Name="tbNameSearch" Width="150" Height="25"/>
 
 
                     <Button Name="btnSearchTask" Click="btnSearchTask_Click"
-                            Background="#222222" BorderThickness="0"
-                            Content="Search"/>
+                         Background="#222222" BorderThickness="0"
+                         Content="Search"/>
                 </StackPanel>
             </Grid>
 
             <Grid Grid.Row="1">
                 <DataGrid Name="TaskDataGrid" AutoGenerateColumns="True"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Grid>
 
 
@@ -45,9 +45,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Margin="10" Width="150" Grid.Column="1"
-                        Name="btnTaskDone" Click="btnTaskDone_Click"
-                        Content="Submit a task"
-                        Background="#222222" BorderThickness="0"/>
+                     Name="btnTaskDone" Click="btnTaskDone_Click"
+                     Content="Submit a task"
+                     Background="#222222" BorderThickness="0"/>
             </Grid>
         </Grid>
     </Grid>
