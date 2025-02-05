@@ -20,7 +20,7 @@
                     Height="25"
                     Width="200"
                     Margin="0,30,0,0"
-                    materialDesign:HintAssist.Hint="Username"/>
+                    materialDesign:HintAssist.Hint=" ID"/>
 
             <Button Name="btnSubmit" Click="btnSubmit_Click"
                     Margin="90" Width="125" Content="Submit"

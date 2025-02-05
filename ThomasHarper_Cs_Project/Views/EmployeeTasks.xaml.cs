@@ -38,7 +38,8 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnTaskDone_Click(object sender, RoutedEventArgs e)
         {
-
+            SubmitTask submitTask = new SubmitTask();
+            submitTask.ShowDialog();
         }
 
         private void btnSearchTask_Click(object sender, RoutedEventArgs e)
