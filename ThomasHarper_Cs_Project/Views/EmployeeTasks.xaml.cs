@@ -44,7 +44,11 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnSearchTask_Click(object sender, RoutedEventArgs e)
         {
-
+            using (var db = new CargoHubEntities())
+            {
+                var items = db.CargoHubEmployeeTasks.ToList();
+                TaskDataGrid.ItemsSource = items;
+            }
         }
     }
 }
