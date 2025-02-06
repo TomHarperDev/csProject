@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\TaskBST.cs" />
     <Compile Include="Views\EmployeeTasks.xaml.cs">
       <DependentUpon>EmployeeTasks.xaml</DependentUpon>
     </Compile>

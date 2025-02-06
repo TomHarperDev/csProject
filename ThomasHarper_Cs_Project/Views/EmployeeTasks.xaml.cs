@@ -46,8 +46,15 @@ namespace ThomasHarper_Cs_Project.Views
         {
             using (var db = new CargoHubEntities())
             {
+            //to perform a binary search i need to sort the items, but i need to sort them based 
+            // on a specific property
+             //https://stackoverflow.com/questions/3309188/how-to-sort-a-listt-by-a-property-in-the-object
                 var items = db.CargoHubEmployeeTasks.ToList();
-                TaskDataGrid.ItemsSource = items;
+                items.OrderBy(u => u.TaskTitle).ToList();
+
+
+                //with the item now sorted they can be searched through using a binary search
+                int foundID = items.FindAll(u => u.TaskTitle == "hg").BinarySearch(tbNameSearch.Text);
             }
         }
     }
