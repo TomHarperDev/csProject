@@ -50,7 +50,13 @@ namespace ThomasHarper_Cs_Project.Views
 
             if (search != null)
             {
-                MessageBox.Show(search.TaskTitle);
+                ViewTask viewTask = new ViewTask();
+                viewTask.tbTaskID.Text = Convert.ToString(search.Id);
+                viewTask.tbTaskTitle.Text = search.TaskTitle;
+                viewTask.tbTaskDescription.Text = search.TaskDescription;
+                viewTask.tbTaskAssignedTo.Text = search.TaskAssignedTo;
+                viewTask.tbTaskAssignedBy.Text = search.TaskAssignedBy;
+                viewTask.ShowDialog();
             }
             else
             {

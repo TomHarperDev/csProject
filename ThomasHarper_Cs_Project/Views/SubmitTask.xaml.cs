@@ -26,7 +26,13 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-
+            using (var db = new CargoHubEntities())
+            {
+                int ID = Convert.ToInt32(tbTaskID.Text);
+                var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
+                db.CargoHubEmployeeTasks.Remove(itemToRemove);
+                db.SaveChanges();
+            }
         }
     }
 }
