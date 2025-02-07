@@ -39,6 +39,18 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnTaskDone_Click(object sender, RoutedEventArgs e)
         {
+            if (tbSearchID.Text.All(char.IsDigit) && tbSearchID.Text != null)
+            {
+                using (var db = new CargoHubEntities())
+                {
+                    int ID = Convert.ToInt32(tbSearchID.Text);
+                    var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
+                    db.CargoHubEmployeeTasks.Remove(itemToRemove);
+                    db.SaveChanges();
+                }
+            }
+
+
             SubmitTask submitTask = new SubmitTask();
             submitTask.ShowDialog();
         }

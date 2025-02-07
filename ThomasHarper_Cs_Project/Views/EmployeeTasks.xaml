@@ -43,7 +43,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <TextBox Grid.Column="1" Margin="10"
+                         Name="tbSearchID" HorizontalAlignment="Left"
+                         Width="125" Height="35"
+                         materialDesign:HintAssist.Hint="Task ID"/>
+
                 <Button Margin="10" Width="150" Grid.Column="1"
+                        HorizontalAlignment="Right"
                      Name="btnTaskDone" Click="btnTaskDone_Click"
                      Content="Submit a task" 
                      Background="#222222" BorderThickness="0"/>
