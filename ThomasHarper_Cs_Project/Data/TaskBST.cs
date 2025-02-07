@@ -37,11 +37,38 @@ namespace ThomasHarper_Cs_Project.Data
             }
         }
 
+        public TaskBST() 
+        {
+            //this needs to create list of all tasks
+            //then add all items to the bst
+            using (var db = new CargoHubEntities())
+            {
+                var taskList = db.CargoHubEmployeeTasks.ToList();
+
+                foreach (var item in taskList)
+                {
+                    Node nodeBeingAdded = new Node(item.TaskID, item.TaskTitle, item.TaskDescription,item.TaskAssignedTo, item.TaskAssignedBy);
+
+                    if (this.Root == null)
+                    {
+                        this.Root = nodeBeingAdded;
+                    }
+                    else
+                    {
+                        this.addTaskToTree(this.Root, nodeBeingAdded);
+                    }
+                }
+                
+            }
+        }
+
+
+
         public void addTaskToTree(Node CurrentNode, Node NodeToAdd)
         {
             //checks if the node needs to go to the right of the current node, then checks if the node can be placed the current nodes child
             //need to check if the title is more or less, use the .Compare ting ive learnt
-            if ( string.Compare(CurrentNode.TaskTitle, NodeToAdd.TaskTitle) == -1)
+            if (string.Compare(CurrentNode.TaskTitle, NodeToAdd.TaskTitle) == -1)
             {
                 if (CurrentNode.RightChild == null)
                 {
@@ -74,7 +101,32 @@ namespace ThomasHarper_Cs_Project.Data
         public Node TraverseTaskTree(Node CurrentNode, string valueToSearch)
         {
 
+            if (CurrentNode.TaskTitle == valueToSearch)
+            {
+                return CurrentNode;
+            }
 
+
+            if (string.Compare(CurrentNode.TaskTitle, valueToSearch) == -1)
+            {
+                if (CurrentNode.RightChild == null)
+                {
+                    return null;
+                }
+
+                return TraverseTaskTree(CurrentNode.RightChild, valueToSearch);
+
+            }
+
+            if (string.Compare(CurrentNode.TaskTitle, valueToSearch) == 1)
+            {
+                if (CurrentNode.LeftChild == null)
+                {
+                    return null;
+                }
+                return TraverseTaskTree(CurrentNode.LeftChild, valueToSearch);
+            }
+            return null;
         }
     }
 }

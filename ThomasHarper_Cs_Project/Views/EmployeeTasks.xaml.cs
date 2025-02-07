@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ThomasHarper_Cs_Project.Data;
 
 namespace ThomasHarper_Cs_Project.Views
 {
@@ -44,17 +45,16 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnSearchTask_Click(object sender, RoutedEventArgs e)
         {
-            using (var db = new CargoHubEntities())
+            TaskBST taskBST = new TaskBST();
+            TaskBST.Node search =  taskBST.TraverseTaskTree(taskBST.Root, tbTitleSearch.Text);
+
+            if (search != null)
             {
-            //to perform a binary search i need to sort the items, but i need to sort them based 
-            // on a specific property
-             //https://stackoverflow.com/questions/3309188/how-to-sort-a-listt-by-a-property-in-the-object
-                var items = db.CargoHubEmployeeTasks.ToList();
-                items.OrderBy(u => u.TaskTitle).ToList();
-
-
-                //with the item now sorted they can be searched through using a binary search
-                int foundID = items.FindAll(u => u.TaskTitle == "hg").BinarySearch(tbNameSearch.Text);
+                MessageBox.Show(search.TaskTitle);
+            }
+            else
+            {
+                MessageBox.Show("Item does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

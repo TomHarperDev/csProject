@@ -20,7 +20,7 @@
                     <!--name-->
                     <!--<TextBlock Text="Search using task title:" VerticalAlignment="Center"
                             FontSize="20" Width="75"/>-->
-                    <TextBox Name="tbNameSearch" Width="150" Height="25" Margin="10,0,0,0"
+                    <TextBox Name="tbTitleSearch" Width="150" Height="25" Margin="10,0,0,0"
                              materialDesign:HintAssist.Hint="Title"
                              materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
 
