@@ -39,6 +39,7 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnTaskDone_Click(object sender, RoutedEventArgs e)
         {
+            //validation
             if (tbSearchID.Text.All(char.IsDigit) && tbSearchID.Text != null)
             {
                 using (var db = new CargoHubEntities())
@@ -47,33 +48,45 @@ namespace ThomasHarper_Cs_Project.Views
                     var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
                     db.CargoHubEmployeeTasks.Remove(itemToRemove);
                     db.SaveChanges();
+                    addItemsToGrid();
+                    MessageBox.Show("Task Completed");
                 }
             }
-
-
-            SubmitTask submitTask = new SubmitTask();
-            submitTask.ShowDialog();
+            else
+            {
+                MessageBox.Show("Input needs to be an integer");
+            }
         }
 
         private void btnSearchTask_Click(object sender, RoutedEventArgs e)
         {
-            TaskBST taskBST = new TaskBST();
-            TaskBST.Node search =  taskBST.TraverseTaskTree(taskBST.Root, tbTitleSearch.Text);
-
-            if (search != null)
+            //validation
+            if (tbTitleSearch.Text.Length < 16)
             {
-                ViewTask viewTask = new ViewTask();
-                viewTask.tbTaskID.Text = Convert.ToString(search.Id);
-                viewTask.tbTaskTitle.Text = search.TaskTitle;
-                viewTask.tbTaskDescription.Text = search.TaskDescription;
-                viewTask.tbTaskAssignedTo.Text = search.TaskAssignedTo;
-                viewTask.tbTaskAssignedBy.Text = search.TaskAssignedBy;
-                viewTask.ShowDialog();
+                TaskBST taskBST = new TaskBST();
+                TaskBST.Node search = taskBST.TraverseTaskTree(taskBST.Root, tbTitleSearch.Text);
+
+                if (search != null)
+                {
+                    ViewTask viewTask = new ViewTask();
+                    viewTask.tbTaskID.Text = Convert.ToString(search.Id);
+                    viewTask.tbTaskTitle.Text = search.TaskTitle;
+                    viewTask.tbTaskDescription.Text = search.TaskDescription;
+                    viewTask.tbTaskAssignedTo.Text = search.TaskAssignedTo;
+                    viewTask.tbTaskAssignedBy.Text = search.TaskAssignedBy;
+                    viewTask.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Item does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+
             else
             {
-                MessageBox.Show("Item does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Title cannot exist as input is too long");
             }
+            
         }
     }
 }
