@@ -1,0 +1,45 @@
+﻿<Window x:Class="ThomasHarper_Cs_Project.Views.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThomasHarper_Cs_Project.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AddProduct" Height="550" Width="500">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Add product" FontSize="20" 
+                       HorizontalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Database"
+                                     Width="200" Height="200"
+                                     HorizontalAlignment="Center"/>
+
+            <TextBox Name="tbNewProductName" 
+                     materialDesign:HintAssist.Hint="Product Name"
+                     Width="200" Margin="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+            <TextBox Name="tbNewProductCategory" 
+                     materialDesign:HintAssist.Hint="Product Category"
+                     Width="200" Margin="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+            <TextBox Name="tbNewProductQty" 
+                     materialDesign:HintAssist.Hint="Product Quantity"
+                     Width="200" Margin="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+            <TextBox Name="tbNewProductCost" 
+                     materialDesign:HintAssist.Hint="Product Cost"
+                     Width="200" Margin="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+            <TextBox Name="tbNewProductReplenishTime" 
+                     materialDesign:HintAssist.Hint="Product Replenish Time"
+                     Width="200" Margin="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+
+            <Button Name="btnAddProduct" Click="btnAddProduct_Click"
+                    Content="Add Product"
+                    Background="Black" BorderThickness="0"
+                    Width="150"/>
+        </StackPanel>
+    </Grid>
+</Window>

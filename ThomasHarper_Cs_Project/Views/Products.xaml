@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ThomasHarper_Cs_Project.Views.Products"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ThomasHarper_Cs_Project.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.7*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <TextBox Name="tbProductSearch" Width="150" Height="25" Margin="10,0,0,0"
+                     materialDesign:HintAssist.Hint="Product Name"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+
+
+                    <Button Name="btnSearchProduct" Click="btnSearchProduct_Click"
+                 Background="#222222" BorderThickness="0" Margin="10"
+                 Content="Search"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <DataGrid Name="ProductDataGrid" AutoGenerateColumns="True"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Grid>
+
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="btnAddProduct" Click="btnAddProduct_Click"
+                        Margin="10" Width="150" 
+                        Content="Create a product" 
+                        Background="#222222" BorderThickness="0"/>
+
+                <TextBox Grid.Column="1" Margin="10"
+                 Name="tbSearchID" HorizontalAlignment="Left"
+                 Width="125" Height="35"
+                 materialDesign:HintAssist.Hint="Product ID"/>
+
+                <Button Margin="10" Width="150" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Name="btnEditProduct" Click="btnEditProduct_Click"
+                        Content="Edit a product" 
+                        Background="#222222" BorderThickness="0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

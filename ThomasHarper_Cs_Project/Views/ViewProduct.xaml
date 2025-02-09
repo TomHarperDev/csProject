@@ -1,0 +1,46 @@
+﻿<Window x:Class="ThomasHarper_Cs_Project.Views.ViewProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThomasHarper_Cs_Project.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ViewProduct" Height="700" Width="600">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="View product" FontSize="20" HorizontalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Database" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,10,0,0"
+                  Width="200"
+                  Height="200"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.7*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Margin="0,20,0,0" Text="Product ID: " FontSize="20" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,20,0,0" Text="Product Name: " FontSize="20" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,20,0,0" Text="Product Category: " FontSize="20" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,20,0,0" Text="Product Quantity: " FontSize="20" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,20,0,0" Text="Product Cost: " FontSize="20" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,20,0,0" Text="Product Replenish Time: " FontSize="20" HorizontalAlignment="Center" />
+
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductID"/>
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductName"/>
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductCategory"/>
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductQty"/>
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductCost"/>
+                    <TextBlock Margin="0,20,0,0"  FontSize="20" HorizontalAlignment="Center" Name="tbProductReplenishTime"/>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

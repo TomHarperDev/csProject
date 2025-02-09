@@ -70,6 +70,9 @@ namespace ThomasHarper_Cs_Project
 
                         if (databaseQuery != null)
                         {
+                            //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
+                            Data.CurrentUser.UserName = tbUserName.Text;
+
                             //once the user has been logged in, redirect them
                             MainWindow mainWindow = new MainWindow();
                             mainWindow.Show();
