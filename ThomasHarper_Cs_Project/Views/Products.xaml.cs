@@ -21,6 +21,7 @@ namespace ThomasHarper_Cs_Project.Views
     /// </summary>
     public partial class Products : UserControl
     {
+        public string toms;
         public Products()
         {
             InitializeComponent();
@@ -105,8 +106,7 @@ namespace ThomasHarper_Cs_Project.Views
             addItemsToGrid();
 
             
-            //instead of passing data through windows, just recreate the BST
-            //actuall a new bst is created every time a searhc is done
+            
         }
     }
 }

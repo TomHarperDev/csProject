@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThomasHarper_Cs_Project.Data;
 
 namespace ThomasHarper_Cs_Project.Views
 {
@@ -42,6 +43,9 @@ namespace ThomasHarper_Cs_Project.Views
                     editedProduct.ProductReplenishTime = tbNewProductReplenishTime.Text;
 
                     db.SaveChanges();
+
+
+                    
                 }
             }
         }
