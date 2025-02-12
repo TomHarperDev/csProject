@@ -72,13 +72,21 @@ namespace ThomasHarper_Cs_Project.Views
             try
             {
                 //validation
-                if (tbSearchID.Text.Length < 16)
+                if (tbSearchID.Text.Length < 16 && tbSearchID.Text != "" && (tbSearchID.Text.All(char.IsDigit)))
                 {
+                    //need to reset the fields in the currentUser to null
+                    productNode.Id = null;
+                    productNode.ProductName = null;
+                    productNode.ProductCategory = null;
+                    productNode.ProductQty = null;
+                    productNode.ProductCost = null;
+                    productNode.ProductReplenishTime = null;
+
                     EditProduct editProduct = new EditProduct();
 
                     using (var db = new CargoHubEntities())
                     {
-                        int searchId = Convert.ToInt32(tbProductSearch.Text);
+                        int searchId = Convert.ToInt32(tbSearchID.Text);
                         var productToBeEdited = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == searchId);
                         editProduct.tbProductId.Text = tbSearchID.Text;
                         editProduct.tbNewProductName.Text = productToBeEdited.ProductName;
@@ -90,7 +98,12 @@ namespace ThomasHarper_Cs_Project.Views
                         addItemsToGrid();
                     }
                 }
-                
+                else
+                {
+                    MessageBox.Show("Input must be an integar ");
+
+                }
+
             }
             catch (Exception ex)
             {
