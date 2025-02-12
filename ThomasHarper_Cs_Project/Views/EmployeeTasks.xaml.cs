@@ -46,10 +46,19 @@ namespace ThomasHarper_Cs_Project.Views
                 {
                     int ID = Convert.ToInt32(tbSearchID.Text);
                     var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
-                    db.CargoHubEmployeeTasks.Remove(itemToRemove);
-                    db.SaveChanges();
-                    addItemsToGrid();
-                    MessageBox.Show("Task Completed");
+
+                    if (itemToRemove != null)
+                    {
+                        db.CargoHubEmployeeTasks.Remove(itemToRemove);
+                        db.SaveChanges();
+                        addItemsToGrid();
+                        MessageBox.Show("Task Completed");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Task does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
                 }
             }
             else

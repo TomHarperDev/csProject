@@ -29,7 +29,7 @@ namespace ThomasHarper_Cs_Project.Views
         {
             
             //validation
-            if (tbTaskTitle.Text != null && tbTaskDescription.Text != null && tbTaskAssignedTo.Text != null &&
+            if (tbTaskTitle.Text != "" && tbTaskDescription.Text != "" && tbTaskAssignedTo.Text != "" &&
                 tbTaskTitle.Text.Length < 16 && tbTaskDescription.Text.Length < 50 && tbTaskAssignedTo.Text.Length < 15)
             {
                 using (var db = new CargoHubEntities())
@@ -56,9 +56,14 @@ namespace ThomasHarper_Cs_Project.Views
                     //user does not exist
                     else 
                     {
-                        MessageBox.Show("The user who you are trying to assign the task to does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("The user who you are trying to assign the task to does not exist", "Error", 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Invalid input");
             }
         }
     }

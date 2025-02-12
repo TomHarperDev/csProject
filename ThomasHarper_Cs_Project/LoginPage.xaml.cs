@@ -91,7 +91,8 @@ namespace ThomasHarper_Cs_Project
             }
             else
             {
-                MessageBox.Show("Userame must be less than 16 characters \nPassword must be less than 16 characters and have one uppercase character","Credentials entered are invalid", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Userame must be less than 16 characters \nPassword must be less than 16 characters and have one uppercase character",
+                    "Credentials entered are invalid", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

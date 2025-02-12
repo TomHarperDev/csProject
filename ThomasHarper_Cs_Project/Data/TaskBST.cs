@@ -67,7 +67,6 @@ namespace ThomasHarper_Cs_Project.Data
         public void addTaskToTree(Node CurrentNode, Node NodeToAdd)
         {
             //checks if the node needs to go to the right of the current node, then checks if the node can be placed the current nodes child
-            //need to check if the title is more or less, use the .Compare ting ive learnt
             if (string.Compare(CurrentNode.TaskTitle, NodeToAdd.TaskTitle) == -1)
             {
                 if (CurrentNode.RightChild == null)
