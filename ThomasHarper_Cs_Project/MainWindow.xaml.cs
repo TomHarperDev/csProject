@@ -26,7 +26,9 @@ namespace ThomasHarper_Cs_Project
         public MainWindow()
         {
             InitializeComponent();
-            
+            parentGrid.Children.Clear();
+            Home home = new Home();
+            parentGrid.Children.Add(home);
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

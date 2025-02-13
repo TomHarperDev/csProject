@@ -25,7 +25,8 @@ namespace ThomasHarper_Cs_Project.Data
             public Node RightChild;
 
 
-            public Node(int id, string productname, string productcategory, int productqty, decimal productcost, string productreplenishtime)
+            public Node(int id, string productname, string productcategory, int productqty, 
+                decimal productcost, string productreplenishtime)
             {
                 this.Id = id;
                 this.ProductName = productname;
@@ -49,7 +50,8 @@ namespace ThomasHarper_Cs_Project.Data
 
                 foreach (var item in productList)
                 {
-                    Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
+                    Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
+                        item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
 
                     if (this.Root == null)
                     {
@@ -69,7 +71,6 @@ namespace ThomasHarper_Cs_Project.Data
         public void addProductToTree(Node CurrentNode, Node NodeToAdd)
         {
             //checks if the node needs to go to the right of the current node, then checks if the node can be placed the current nodes child
-            //need to check if the title is more or less, use the .Compare ting ive learnt
             if (string.Compare(CurrentNode.ProductName, NodeToAdd.ProductName) == -1)
             {
                 if (CurrentNode.RightChild == null)
