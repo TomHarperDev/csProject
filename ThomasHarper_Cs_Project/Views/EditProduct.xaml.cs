@@ -24,7 +24,7 @@ namespace ThomasHarper_Cs_Project.Views
         {
             InitializeComponent();
 
-            //need to reset the fields in the currentUser to null
+            //need to reset the fields in the productNode to null
             productNode.Id = null;
             productNode.ProductName = null;
             productNode.ProductCategory = null;
@@ -42,7 +42,8 @@ namespace ThomasHarper_Cs_Project.Views
                 using (var db = new CargoHubEntities())
                 {
                     //find product to be edited
-                    var editedProduct = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == Convert.ToInt32(tbProductId.Text));
+                    int prodID = Convert.ToInt32(tbProductId.Text);
+                    var editedProduct = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == prodID);
                     //update the fields based on the windows inputs
                     editedProduct.ProductName = tbNewProductName.Text;
                     editedProduct.ProductCategory = tbNewProductCategory.Text;
@@ -60,6 +61,8 @@ namespace ThomasHarper_Cs_Project.Views
                     productNode.ProductCost = editedProduct.ProductCost;
                     productNode.ProductReplenishTime = editedProduct.ProductReplenishTime;
 
+
+                    this.Close();
                 }
             }
         }

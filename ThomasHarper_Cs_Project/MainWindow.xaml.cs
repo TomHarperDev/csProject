@@ -79,7 +79,9 @@ namespace ThomasHarper_Cs_Project
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-
+            parentGrid.Children.Clear();
+            Home home = new Home();
+            parentGrid.Children.Add(home);
         }
     }
 }

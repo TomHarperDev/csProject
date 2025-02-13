@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ThomasHarper_Cs_Project.Data
 {
@@ -131,31 +133,45 @@ namespace ThomasHarper_Cs_Project.Data
 
         public void EditTreeItem(Node CurrentNode, string valueToSearch)
         {
-            if (CurrentNode.ProductName == valueToSearch)
-            {
-                //code to edit the tree
-            }
+            //    if (CurrentNode.ProductName == valueToSearch)
+            //    {
+            //        MessageBox.Show("found");
+            //        //code to edit the tree
+            //        CurrentNode.ProductName = productNode.ProductName;
+            //        CurrentNode.ProductCategory = productNode.ProductCategory;
+            //        CurrentNode.ProductQty = Convert.ToInt32(productNode.ProductQty);
+            //        CurrentNode.ProductCost = Convert.ToDecimal(productNode.ProductCost);
+            //        CurrentNode.ProductReplenishTime = productNode.ProductReplenishTime;
+
+            //        return;
+            //    }
 
 
-            if (string.Compare(CurrentNode.ProductName, valueToSearch) == -1)
-            {
-                if (CurrentNode.RightChild == null)
-                {
-                    return;
-                }
+            //    if (string.Compare(CurrentNode.ProductName, valueToSearch) == -1)
+            //    {
+            //        if (CurrentNode.RightChild == null)
+            //        {
+            //            return;
+            //        }
 
-                EditTreeItem(CurrentNode.RightChild, valueToSearch);
+            //        EditTreeItem(CurrentNode.RightChild, valueToSearch);
 
-            }
+            //    }
 
-            if (string.Compare(CurrentNode.ProductName, valueToSearch) == 1)
-            {
-                if (CurrentNode.LeftChild == null)
-                {
-                    return;
-                }
-                EditTreeItem(CurrentNode.LeftChild, valueToSearch);
-            }
+            //    if (string.Compare(CurrentNode.ProductName, valueToSearch) == 1)
+            //    {
+            //        if (CurrentNode.LeftChild == null)
+            //        {
+            //            return;
+            //        }
+            //        EditTreeItem(CurrentNode.LeftChild, valueToSearch);
+            //    }
+            //    return;
+
+
+
+            MessageBox.Show(Root.RightChild.RightChild.LeftChild.ProductName);
+            this.Root.RightChild.RightChild.LeftChild.ProductName = "this be a test";
         }
     }
 }

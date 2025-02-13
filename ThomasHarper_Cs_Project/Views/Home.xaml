@@ -7,6 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Home" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                   FontSize="20"/>
+        
+        <!--display item lowest in stock-->
+        <Grid>
+            <StackPanel Margin="100">
+                <TextBlock Text="Lowest Stock Item"
+                           HorizontalAlignment="Center"
+                           FontSize="15"/>
+                <TextBlock Name="tbLowestItemName" HorizontalAlignment="Center"/>
+                <TextBlock Name="tbLowestItemCost" HorizontalAlignment="Center"/>
+                <TextBlock Name="tbLowestItemReplenishTime" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        
+        
+        <!--display a task to the user-->
+        <Grid Grid.Column="1">
+            <StackPanel Margin="100">
+                <TextBlock Text="Task"
+                           HorizontalAlignment="Center"
+                           FontSize="15"/>
+                <TextBlock Name="tbTaskTitle" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

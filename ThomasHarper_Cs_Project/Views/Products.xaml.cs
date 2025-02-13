@@ -21,11 +21,12 @@ namespace ThomasHarper_Cs_Project.Views
     /// </summary>
     public partial class Products : UserControl
     {
-        public string toms;
+        ProductBST productBST;
         public Products()
         {
             InitializeComponent();
             addItemsToGrid();
+            productBST = new ProductBST();
 
         }
         public void addItemsToGrid()
@@ -42,7 +43,6 @@ namespace ThomasHarper_Cs_Project.Views
             //validation
             if (tbProductSearch.Text.Length < 16)
             {
-                ProductBST productBST = new ProductBST();
                 ProductBST.Node search = productBST.TraverseProductTree(productBST.Root,tbProductSearch.Text);
 
                 if (search != null)
@@ -74,7 +74,7 @@ namespace ThomasHarper_Cs_Project.Views
                 //validation
                 if (tbSearchID.Text.Length < 16 && tbSearchID.Text != "" && (tbSearchID.Text.All(char.IsDigit)))
                 {
-                    //need to reset the fields in the currentUser to null
+                    //need to reset the fields in the productNode to null
                     productNode.Id = null;
                     productNode.ProductName = null;
                     productNode.ProductCategory = null;
@@ -82,8 +82,10 @@ namespace ThomasHarper_Cs_Project.Views
                     productNode.ProductCost = null;
                     productNode.ProductReplenishTime = null;
 
+                    
+                    //show the edit view to the user
+                    //populate it with product data
                     EditProduct editProduct = new EditProduct();
-
                     using (var db = new CargoHubEntities())
                     {
                         int searchId = Convert.ToInt32(tbSearchID.Text);
@@ -97,6 +99,20 @@ namespace ThomasHarper_Cs_Project.Views
                         editProduct.ShowDialog();
                         addItemsToGrid();
                     }
+
+                    //getting to this code means that they user has closed the edit product window
+                    //check whether or not the user has edited something
+                    //then modify the tree accordingly
+                    MessageBox.Show(productNode.ProductName);
+                    productBST.EditTreeItem(productBST.Root, productNode.ProductName);
+
+                    //reset all items back to null
+                    productNode.Id = null;
+                    productNode.ProductName = null;
+                    productNode.ProductCategory = null;
+                    productNode.ProductQty = null;
+                    productNode.ProductCost = null;
+                    productNode.ProductReplenishTime = null;
                 }
                 else
                 {

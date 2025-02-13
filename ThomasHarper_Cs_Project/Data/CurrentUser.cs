@@ -8,6 +8,7 @@ namespace ThomasHarper_Cs_Project.Data
 {
     public static class CurrentUser
     {
-        public static string UserName { get; set; }
+        //public static string UserName { get; set; }
+        public static string UserName = "bigTOm";
     }
 }
