@@ -23,14 +23,6 @@ namespace ThomasHarper_Cs_Project.Views
         public EditProduct()
         {
             InitializeComponent();
-
-            //need to reset the fields in the productNode to null
-            productNode.Id = null;
-            productNode.ProductName = null;
-            productNode.ProductCategory = null;
-            productNode.ProductQty = null;
-            productNode.ProductCost = null;
-            productNode.ProductReplenishTime = null;
         }
 
         private void btnEditProduct_Click(object sender, RoutedEventArgs e)
@@ -52,16 +44,6 @@ namespace ThomasHarper_Cs_Project.Views
                     editedProduct.ProductReplenishTime = tbNewProductReplenishTime.Text;
 
                     db.SaveChanges();
-
-
-                    productNode.Id = editedProduct.ProductID;
-                    productNode.ProductName = editedProduct.ProductName;
-                    productNode.ProductCategory = editedProduct.ProductCategory;
-                    productNode.ProductQty = editedProduct.ProductQuantity;
-                    productNode.ProductCost = editedProduct.ProductCost;
-                    productNode.ProductReplenishTime = editedProduct.ProductReplenishTime;
-
-
                     this.Close();
                 }
             }
