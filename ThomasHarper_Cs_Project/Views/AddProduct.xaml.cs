@@ -26,21 +26,39 @@ namespace ThomasHarper_Cs_Project.Views
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            //add in the product to the database and the BST
-            using (var db = new CargoHubEntities())
+            //validation
+            if (tbNewProductName.Text != "" && tbNewProductCategory.Text != "" && tbNewProductQty.Text != "" &&
+                tbNewProductCost.Text != "" && tbNewProductReplenishTime.Text != "")
             {
-                var newProduct = new CargoHubProduct()
+                try
                 {
-                    ProductName = tbNewProductName.Text,
-                    ProductCategory = tbNewProductCategory.Text,
-                    ProductQuantity = Convert.ToInt32(tbNewProductQty.Text),
-                    ProductCost = Convert.ToDecimal(tbNewProductCost.Text),
-                    ProductReplenishTime = tbNewProductReplenishTime.Text
-                };
-                db.CargoHubProducts.Add(newProduct);
-                db.SaveChanges();
-                MessageBox.Show("Product Added");
+                    //add in the product to the database and the BST
+                    using (var db = new CargoHubEntities())
+                    {
+                        var newProduct = new CargoHubProduct()
+                        {
+                            ProductName = tbNewProductName.Text,
+                            ProductCategory = tbNewProductCategory.Text,
+                            ProductQuantity = Convert.ToInt32(tbNewProductQty.Text),
+                            ProductCost = Convert.ToDecimal(tbNewProductCost.Text),
+                            ProductReplenishTime = tbNewProductReplenishTime.Text
+                        };
+                        db.CargoHubProducts.Add(newProduct);
+                        db.SaveChanges();
+                        MessageBox.Show("Product Added");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //show user error
+                    MessageBox.Show("Please ensure all information is in correct format \n The quantity is an integar and cost is a decimal. The rest are strings");
+                }
             }
+            else
+            {
+                MessageBox.Show("All fields are required");
+            }
+            
         }
     }
 }
