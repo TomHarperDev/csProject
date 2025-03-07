@@ -54,11 +54,15 @@ namespace ThomasHarper_Cs_Project
                 using (var db = new CargoHubEntities())
                 {
                     var isUserAdmin = db.CargoHubUsers.FirstOrDefault(u => u.UserName == Data.CurrentUser.UserName).IsUserAdmin;
-                    if (isUserAdmin != null)
+                    if (isUserAdmin == true)
                     {
                         parentGrid.Children.Clear();
                         Views.Admin admin = new Views.Admin();
                         parentGrid.Children.Add(admin);
+                    }
+                    else
+                    {
+                        MessageBox.Show("You do not have permission to this page", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                 }
