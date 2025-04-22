@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,22 +23,38 @@ namespace ThomasHarper_Cs_Project.Views
     public partial class Products : UserControl
     {
         ProductBST productBST;
+
+        ObservableCollection<ProductBST.Node> products = new ObservableCollection<ProductBST.Node>();
         public Products()
         {
             InitializeComponent();
-            addItemsToGrid();
             productBST = new ProductBST();
+            products.Add(productBST.Root);
+            ProductDataGrid.ItemsSource = products;
+            //addItemsToGrid();
 
         }
+        //public void addItemsToGrid()
+        //{
+        //    using (var db = new CargoHubEntities())
+        //    {
+        //        var items = db.CargoHubProducts.ToList();
+        //        ProductDataGrid.ItemsSource = items;
+        //    }
+        //}
+
         public void addItemsToGrid()
         {
-            using (var db = new CargoHubEntities())
-            {
-                var items = db.CargoHubProducts.ToList();
-                ProductDataGrid.ItemsSource = items;
-            }
-        }
+            List<ProductBST.Node> productList = new List<ProductBST.Node>();
 
+            // Only add the root node if it exists
+            if (productBST.Root != null)
+            {
+                productList.Add(productBST.Root);
+            }
+
+            ProductDataGrid.ItemsSource = productList;
+        }
         private void btnSearchProduct_Click(object sender, RoutedEventArgs e)
         {
             //validation
@@ -88,7 +105,7 @@ namespace ThomasHarper_Cs_Project.Views
                         editProduct.tbNewProductCost.Text = Convert.ToString(Convert.ToDouble(productToBeEdited.ProductCost));
                         editProduct.tbNewProductReplenishTime.Text = productToBeEdited.ProductReplenishTime;
                         editProduct.ShowDialog();
-                        addItemsToGrid();
+                        //addItemsToGrid();
                     }
 
                     productBST = null;
@@ -113,7 +130,7 @@ namespace ThomasHarper_Cs_Project.Views
         {
             AddProduct addProduct = new AddProduct();
             addProduct.ShowDialog();
-            addItemsToGrid();
+            //addItemsToGrid();
 
             productBST = null;
             productBST = new ProductBST();

@@ -34,6 +34,20 @@
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Grid>
 
+            <!--<Grid Grid.Row="1">
+                <DataGrid Name="ProductDataGrid" AutoGenerateColumns="False"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"  Width="60"/>
+                        <DataGridTextColumn Header="Product Name"  Width="200"/>
+                        <DataGridTextColumn Header="Category"  Width="150"/>
+                        <DataGridTextColumn Header="Quantity"  Width="80"/>
+                        <DataGridTextColumn Header="Cost"  Width="80"/>
+                        <DataGridTextColumn Header="Replenish Time"  Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>-->
+
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>

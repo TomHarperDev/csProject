@@ -12,57 +12,91 @@ namespace ThomasHarper_Cs_Project.Data
     {
         public Node Root;
 
+        //public class Node
+        //{
+        //    public int Id;
+        //    public string ProductName;
+        //    public string ProductCategory;
+        //    public int ProductQty;
+        //    public decimal ProductCost;
+        //    public string ProductReplenishTime;
+
+        //    public Node LeftChild;
+        //    public Node RightChild;
+
+
+        //    public Node(int id, string productname, string productcategory, int productqty, 
+        //        decimal productcost, string productreplenishtime)
+        //    {
+        //        this.Id = id;
+        //        this.ProductName = productname;
+        //        this.ProductCategory = productcategory;
+        //        this.ProductQty = productqty;
+        //        this.ProductCost = productcost;
+        //        this.ProductReplenishTime = productreplenishtime;
+
+        //        this.LeftChild = null;
+        //        this.RightChild = null;
+        //    }
+        //}
+
         public class Node
         {
-            public int Id;
-            public string ProductName;
-            public string ProductCategory;
-            public int ProductQty;
-            public decimal ProductCost;
-            public string ProductReplenishTime;
+            public int Id { get; set; }
+            public string ProductName { get; set; }
+            public string ProductCategory { get; set; }
+            public int ProductQty { get; set; }
+            public decimal ProductCost { get; set; }
+            public string ProductReplenishTime { get; set; }
 
-            public Node LeftChild;
-            public Node RightChild;
+            public Node LeftChild { get; set; }
+            public Node RightChild { get; set; }
 
-
-            public Node(int id, string productname, string productcategory, int productqty, 
+            public Node(int id, string productname, string productcategory, int productqty,
                 decimal productcost, string productreplenishtime)
             {
-                this.Id = id;
-                this.ProductName = productname;
-                this.ProductCategory = productcategory;
-                this.ProductQty = productqty;
-                this.ProductCost = productcost;
-                this.ProductReplenishTime = productreplenishtime;
-
-                this.LeftChild = null;
-                this.RightChild = null;
+                Id = id;
+                ProductName = productname;
+                ProductCategory = productcategory;
+                ProductQty = productqty;
+                ProductCost = productcost;
+                ProductReplenishTime = productreplenishtime;
             }
         }
+
 
         public ProductBST()
         {
             //this needs to create list of all tasks
             //then add all items to the bst
-            using (var db = new CargoHubEntities())
+            //using (var db = new CargoHubEntities())
+            //{
+            //    var productList = db.CargoHubProducts.ToList();
+
+            //    foreach (var item in productList)
+            //    {
+            //        Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
+            //            item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
+
+            //        if (this.Root == null)
+            //        {
+            //            this.Root = nodeBeingAdded;
+            //        }
+            //        else
+            //        {
+            //            this.addProductToTree(this.Root, nodeBeingAdded);
+            //        }
+            //    }
+
+            //}
+            Node addNode = new Node(1, "Test", "NoDBTest", 10, 10.00m, "1 Day");
+            if (this.Root == null)
             {
-                var productList = db.CargoHubProducts.ToList();
-
-                foreach (var item in productList)
-                {
-                    Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
-                        item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
-
-                    if (this.Root == null)
-                    {
-                        this.Root = nodeBeingAdded;
-                    }
-                    else
-                    {
-                        this.addProductToTree(this.Root, nodeBeingAdded);
-                    }
-                }
-
+                this.Root = addNode;
+            }
+            else
+            {
+                this.addProductToTree(this.Root, addNode);
             }
         }
 
