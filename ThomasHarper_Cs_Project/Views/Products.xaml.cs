@@ -40,7 +40,7 @@ namespace ThomasHarper_Cs_Project.Views
         //    {
         //        var items = db.CargoHubProducts.ToList();
         //        ProductDataGrid.ItemsSource = items;
-        //    }
+        //    } 
         //}
 
         public void addItemsToGrid()
