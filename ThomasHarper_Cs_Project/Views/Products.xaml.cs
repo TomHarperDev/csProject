@@ -32,6 +32,7 @@ namespace ThomasHarper_Cs_Project.Views
             products.Add(productBST.Root);
             ProductDataGrid.ItemsSource = products;
             //addItemsToGrid();
+            //hello world
 
         }
         //public void addItemsToGrid()
