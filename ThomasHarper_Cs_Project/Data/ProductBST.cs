@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ThomasHarper_Cs_Project.Data
 {
-    internal class ProductBST
+    public class ProductBST
     {
         public Node Root;
 

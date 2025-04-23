@@ -20,16 +20,19 @@ namespace ThomasHarper_Cs_Project.Views
     /// <summary>
     /// Interaction logic for Products.xaml
     /// </summary>
+    /// 
+
     public partial class Products : UserControl
     {
-        ProductBST productBST;
+        public static ProductBST productBST;
 
-        ObservableCollection<ProductBST.Node> products = new ObservableCollection<ProductBST.Node>();
+        public static ObservableCollection<ProductBST.Node> products = new ObservableCollection<ProductBST.Node>();
         public Products()
         {
             InitializeComponent();
             productBST = new ProductBST();
             products.Add(productBST.Root);
+            products.Add(productBST.Root); 
             ProductDataGrid.ItemsSource = products;
             //addItemsToGrid();
             //hello world
@@ -133,8 +136,11 @@ namespace ThomasHarper_Cs_Project.Views
             addProduct.ShowDialog();
             //addItemsToGrid();
 
-            productBST = null;
-            productBST = new ProductBST();
+            //productBST = null;
+            //productBST = new ProductBST();
+
+            ProductDataGrid.ItemsSource = products;
+
 
         }
     }
