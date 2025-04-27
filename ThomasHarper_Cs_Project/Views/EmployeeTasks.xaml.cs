@@ -30,11 +30,11 @@ namespace ThomasHarper_Cs_Project.Views
         }
         public void addItemsToGrid()
         {
-            using (var db = new CargoHubEntities())
-            {
-                var items = db.CargoHubEmployeeTasks.ToList();
-                TaskDataGrid.ItemsSource = items;
-            }
+            //using (var db = new CargoHubEntities())
+            //{
+            //    var items = db.CargoHubEmployeeTasks.ToList();
+            //    TaskDataGrid.ItemsSource = items;
+            //}
         }
 
         private void btnTaskDone_Click(object sender, RoutedEventArgs e)
@@ -42,24 +42,24 @@ namespace ThomasHarper_Cs_Project.Views
             //validation
             if (tbSearchID.Text.All(char.IsDigit) && tbSearchID.Text != null)
             {
-                using (var db = new CargoHubEntities())
-                {
-                    int ID = Convert.ToInt32(tbSearchID.Text);
-                    var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
+                //using (var db = new CargoHubEntities())
+                //{
+                //    int ID = Convert.ToInt32(tbSearchID.Text);
+                //    var itemToRemove = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskID == ID);
 
-                    if (itemToRemove != null)
-                    {
-                        db.CargoHubEmployeeTasks.Remove(itemToRemove);
-                        db.SaveChanges();
-                        addItemsToGrid();
-                        MessageBox.Show("Task Completed");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Task does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                //    if (itemToRemove != null)
+                //    {
+                //        db.CargoHubEmployeeTasks.Remove(itemToRemove);
+                //        db.SaveChanges();
+                //        addItemsToGrid();
+                //        MessageBox.Show("Task Completed");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Task does not exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //    }
 
-                }
+                //}
             }
             else
             {

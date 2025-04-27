@@ -51,21 +51,21 @@ namespace ThomasHarper_Cs_Project
             // only allow user access to this page if the user is an admin
             try
             {
-                using (var db = new CargoHubEntities())
-                {
-                    var isUserAdmin = db.CargoHubUsers.FirstOrDefault(u => u.UserName == Data.CurrentUser.UserName).IsUserAdmin;
-                    if (isUserAdmin == true)
-                    {
-                        parentGrid.Children.Clear();
-                        Views.Admin admin = new Views.Admin();
-                        parentGrid.Children.Add(admin);
-                    }
-                    else
-                    {
-                        MessageBox.Show("You do not have permission to this page", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                //using (var db = new CargoHubEntities())
+                //{
+                //    var isUserAdmin = db.CargoHubUsers.FirstOrDefault(u => u.UserName == Data.CurrentUser.UserName).IsUserAdmin;
+                //    if (isUserAdmin == true)
+                //    {
+                //        parentGrid.Children.Clear();
+                //        Views.Admin admin = new Views.Admin();
+                //        parentGrid.Children.Add(admin);
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("You do not have permission to this page", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //    }
 
-                }
+                //}
             }
             //user isnt an admin
             catch (Exception)

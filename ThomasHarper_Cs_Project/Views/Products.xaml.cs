@@ -31,11 +31,11 @@ namespace ThomasHarper_Cs_Project.Views
         }
         public void addItemsToGrid()
         {
-            using (var db = new CargoHubEntities())
-            {
-                var items = db.CargoHubProducts.ToList();
-                ProductDataGrid.ItemsSource = items;
-            }
+            //using (var db = new CargoHubEntities())
+            //{
+            //    var items = db.CargoHubProducts.ToList();
+            //    ProductDataGrid.ItemsSource = items;
+            //}
         }
 
         private void btnSearchProduct_Click(object sender, RoutedEventArgs e)
@@ -76,20 +76,20 @@ namespace ThomasHarper_Cs_Project.Views
                 {
                     //show the edit view to the user
                     //populate it with product data
-                    EditProduct editProduct = new EditProduct();
-                    using (var db = new CargoHubEntities())
-                    {
-                        int searchId = Convert.ToInt32(tbSearchID.Text);
-                        var productToBeEdited = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == searchId);
-                        editProduct.tbProductId.Text = tbSearchID.Text;
-                        editProduct.tbNewProductName.Text = productToBeEdited.ProductName;
-                        editProduct.tbNewProductCategory.Text = productToBeEdited.ProductCategory;
-                        editProduct.tbNewProductQty.Text = Convert.ToString(productToBeEdited.ProductQuantity);
-                        editProduct.tbNewProductCost.Text = Convert.ToString(Convert.ToDouble(productToBeEdited.ProductCost));
-                        editProduct.tbNewProductReplenishTime.Text = productToBeEdited.ProductReplenishTime;
-                        editProduct.ShowDialog();
-                        addItemsToGrid();
-                    }
+                    //EditProduct editProduct = new EditProduct();
+                    //using (var db = new CargoHubEntities())
+                    //{
+                    //    int searchId = Convert.ToInt32(tbSearchID.Text);
+                    //    var productToBeEdited = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == searchId);
+                    //    editProduct.tbProductId.Text = tbSearchID.Text;
+                    //    editProduct.tbNewProductName.Text = productToBeEdited.ProductName;
+                    //    editProduct.tbNewProductCategory.Text = productToBeEdited.ProductCategory;
+                    //    editProduct.tbNewProductQty.Text = Convert.ToString(productToBeEdited.ProductQuantity);
+                    //    editProduct.tbNewProductCost.Text = Convert.ToString(Convert.ToDouble(productToBeEdited.ProductCost));
+                    //    editProduct.tbNewProductReplenishTime.Text = productToBeEdited.ProductReplenishTime;
+                    //    editProduct.ShowDialog();
+                    //    addItemsToGrid();
+                    //}
 
                     productBST = null;
                     productBST = new ProductBST();

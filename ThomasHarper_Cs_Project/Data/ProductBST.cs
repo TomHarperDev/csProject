@@ -44,26 +44,26 @@ namespace ThomasHarper_Cs_Project.Data
         {
             //this needs to create list of all tasks
             //then add all items to the bst
-            using (var db = new CargoHubEntities())
-            {
-                var productList = db.CargoHubProducts.ToList();
+            //using (var db = new CargoHubEntities())
+            //{
+            //    var productList = db.CargoHubProducts.ToList();
 
-                foreach (var item in productList)
-                {
-                    Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
-                        item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
+            //    foreach (var item in productList)
+            //    {
+            //        Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
+            //            item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
 
-                    if (this.Root == null)
-                    {
-                        this.Root = nodeBeingAdded;
-                    }
-                    else
-                    {
-                        this.addProductToTree(this.Root, nodeBeingAdded);
-                    }
-                }
+            //        if (this.Root == null)
+            //        {
+            //            this.Root = nodeBeingAdded;
+            //        }
+            //        else
+            //        {
+            //            this.addProductToTree(this.Root, nodeBeingAdded);
+            //        }
+            //    }
 
-            }
+            //}
         }
 
 

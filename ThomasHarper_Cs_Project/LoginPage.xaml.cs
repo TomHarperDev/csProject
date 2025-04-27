@@ -62,27 +62,27 @@ namespace ThomasHarper_Cs_Project
                 // code to log the user in
                 try
                 {
-                    using (var database = new CargoHubEntities())
-                    {
+                    //using (var database = new CargoHubEntities())
+                    //{
 
-                        var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
-                        && user.UserPassword == hashedPassword);
+                    //    var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
+                    //    && user.UserPassword == hashedPassword);
 
-                        if (databaseQuery != null)
-                        {
-                            //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
-                            Data.CurrentUser.UserName = tbUserName.Text;
+                    //    if (databaseQuery != null)
+                    //    {
+                    //        //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
+                    //        Data.CurrentUser.UserName = tbUserName.Text;
 
-                            //once the user has been logged in, redirect them
-                            MainWindow mainWindow = new MainWindow();
-                            mainWindow.Show();
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error );
-                        }
-                    }
+                    //        //once the user has been logged in, redirect them
+                    //        MainWindow mainWindow = new MainWindow();
+                    //        mainWindow.Show();
+                    //        this.Close();
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error );
+                    //    }
+                    //}
                 }
                 catch (Exception ex)
                 {

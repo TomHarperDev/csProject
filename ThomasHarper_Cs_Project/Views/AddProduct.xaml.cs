@@ -33,20 +33,20 @@ namespace ThomasHarper_Cs_Project.Views
                 try
                 {
                     //add in the product to the database and the BST
-                    using (var db = new CargoHubEntities())
-                    {
-                        var newProduct = new CargoHubProduct()
-                        {
-                            ProductName = tbNewProductName.Text,
-                            ProductCategory = tbNewProductCategory.Text,
-                            ProductQuantity = Convert.ToInt32(tbNewProductQty.Text),
-                            ProductCost = Convert.ToDecimal(tbNewProductCost.Text),
-                            ProductReplenishTime = tbNewProductReplenishTime.Text
-                        };
-                        db.CargoHubProducts.Add(newProduct);
-                        db.SaveChanges();
-                        MessageBox.Show("Product Added");
-                    }
+                    //using (var db = new CargoHubEntities())
+                    //{
+                    //    var newProduct = new CargoHubProduct()
+                    //    {
+                    //        ProductName = tbNewProductName.Text,
+                    //        ProductCategory = tbNewProductCategory.Text,
+                    //        ProductQuantity = Convert.ToInt32(tbNewProductQty.Text),
+                    //        ProductCost = Convert.ToDecimal(tbNewProductCost.Text),
+                    //        ProductReplenishTime = tbNewProductReplenishTime.Text
+                    //    };
+                    //    db.CargoHubProducts.Add(newProduct);
+                    //    db.SaveChanges();
+                    //    MessageBox.Show("Product Added");
+                    //}
                 }
                 catch (Exception ex)
                 {
