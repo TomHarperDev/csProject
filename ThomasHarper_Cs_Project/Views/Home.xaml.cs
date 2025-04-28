@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,6 @@ namespace ThomasHarper_Cs_Project.Views
             InitializeComponent();
 
             using (var db = new CargoHubEntities())
-                
             {
                 //populate the lowest stock item side
                 var stockItems = db.CargoHubProducts.ToList();
@@ -65,7 +65,9 @@ namespace ThomasHarper_Cs_Project.Views
 
                 //populate the task side
                 //get task assinged to current user
-                var task = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskAssignedTo == Data.CurrentUser.UserName);
+                //var task = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskAssignedTo == Data.CurrentUser.UserName);
+                MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskTitle);
+                var task = db.CargoHubEmployeeTasks.FirstOrDefault();
                 if (task != null)
                 {
                     tbTaskTitle.Text = task.TaskTitle;
@@ -75,6 +77,20 @@ namespace ThomasHarper_Cs_Project.Views
                     tbTaskTitle.Text = "USER HAS NO TASKS";
                 }
             }
+
+            //using (var db = new CargoHubEntities())
+            //{
+            //    MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskTitle);
+            //    var task = db.CargoHubEmployeeTasks.FirstOrDefault();
+            //    if (task != null)
+            //    {
+            //        tbTaskTitle.Text = task.TaskTitle;
+            //    }
+            //    else
+            //    {
+            //        tbTaskTitle.Text = "USER HAS NO TASKS";
+            //    }
+            //}
         }
     }
 }
