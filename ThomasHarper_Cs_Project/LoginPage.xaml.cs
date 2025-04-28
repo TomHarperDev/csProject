@@ -15,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThomasHarper_Cs_Project.Models;
+using ThomasHarper_Cs_Project.Views;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ThomasHarper_Cs_Project
@@ -27,6 +29,22 @@ namespace ThomasHarper_Cs_Project
         public LoginPage()
         {
             InitializeComponent();
+
+
+            //add a user to db
+            using (var db = new CargoHubEntities())
+            {
+                var newUser = new CargoHubUsers()
+                {
+                    UserID = 1,
+                    UserName = "admin",
+                    UserPassword = "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
+                    IsUserAdmin = true
+                };
+                db.CargoHubUsers.Add(newUser);
+                db.SaveChanges();
+                MessageBox.Show($"User Added {newUser.UserName} : {newUser.UserPassword}");
+            }
         }
 
         private bool usernameValidation()
@@ -62,27 +80,29 @@ namespace ThomasHarper_Cs_Project
                 // code to log the user in
                 try
                 {
-                    //using (var database = new CargoHubEntities())
-                    //{
+                    using (var database = new CargoHubEntities())
+                    {
 
-                    //    var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
-                    //    && user.UserPassword == hashedPassword);
+                        //var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text );
 
-                    //    if (databaseQuery != null)
-                    //    {
-                    //        //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
-                    //        Data.CurrentUser.UserName = tbUserName.Text;
+                        var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
+                        && user.UserPassword == hashedPassword);
 
-                    //        //once the user has been logged in, redirect them
-                    //        MainWindow mainWindow = new MainWindow();
-                    //        mainWindow.Show();
-                    //        this.Close();
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error );
-                    //    }
-                    //}
+                        if (databaseQuery != null)
+                        {
+                            //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
+                            Data.CurrentUser.UserName = tbUserName.Text;
+
+                            //once the user has been logged in, redirect them
+                            MainWindow mainWindow = new MainWindow();
+                            mainWindow.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
