@@ -36,14 +36,12 @@ namespace ThomasHarper_Cs_Project
             {
                 var newUser = new CargoHubUsers()
                 {
-                    UserID = 1,
                     UserName = "admin",
                     UserPassword = "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
                     IsUserAdmin = true
                 };
                 db.CargoHubUsers.Add(newUser);
                 db.SaveChanges();
-                MessageBox.Show($"User Added {newUser.UserName} : {newUser.UserPassword}");
             }
         }
 

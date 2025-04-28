@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ThomasHarper_Cs_Project.Models;
 using ThomasHarper_Cs_Project.Views;
 
 
@@ -88,6 +89,20 @@ namespace ThomasHarper_Cs_Project
             parentGrid.Children.Clear();
             Home home = new Home();
             parentGrid.Children.Add(home);
+        }
+
+
+        public void addDataToDatabase()
+        {
+            using (var db = new CargoHubEntities())
+            {
+                var newTask = new CargoHubEmployeeTasks()
+                {
+
+                };
+                //db.CargoHubUsers.Add(newUser);
+                db.SaveChanges();
+            }
         }
     }
 }
