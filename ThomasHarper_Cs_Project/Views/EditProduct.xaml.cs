@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ThomasHarper_Cs_Project.Data;
+using ThomasHarper_Cs_Project.Models;
 
 namespace ThomasHarper_Cs_Project.Views
 {
@@ -31,21 +32,21 @@ namespace ThomasHarper_Cs_Project.Views
             if (tbNewProductName.Text != null && tbNewProductCategory.Text != null && tbNewProductQty.Text != null && tbNewProductCost.Text != null && tbNewProductReplenishTime != null &&
                 tbNewProductName.Text.Length < 16 && tbNewProductCategory.Text.Length < 16 && tbNewProductReplenishTime.Text.Length <16)
             {
-                //using (var db = new CargoHubEntities())
-                //{
-                //    //find product to be edited
-                //    int prodID = Convert.ToInt32(tbProductId.Text);
-                //    var editedProduct = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == prodID);
-                //    //update the fields based on the windows inputs
-                //    editedProduct.ProductName = tbNewProductName.Text;
-                //    editedProduct.ProductCategory = tbNewProductCategory.Text;
-                //    editedProduct.ProductQuantity = Convert.ToInt32(tbNewProductQty.Text);
-                //    editedProduct.ProductCost = Convert.ToDecimal(tbNewProductCost.Text);
-                //    editedProduct.ProductReplenishTime = tbNewProductReplenishTime.Text;
+                using (var db = new CargoHubEntities())
+                {
+                    //find product to be edited
+                    int prodID = Convert.ToInt32(tbProductId.Text);
+                    var editedProduct = db.CargoHubProducts.FirstOrDefault(u => u.ProductID == prodID);
+                    //update the fields based on the windows inputs
+                    editedProduct.ProductName = tbNewProductName.Text;
+                    editedProduct.ProductCategory = tbNewProductCategory.Text;
+                    editedProduct.ProductQuantity = Convert.ToInt32(tbNewProductQty.Text);
+                    editedProduct.ProductCost = Convert.ToDecimal(tbNewProductCost.Text);
+                    editedProduct.ProductReplenishTime = tbNewProductReplenishTime.Text;
 
-                //    db.SaveChanges();
-                //    this.Close();
-                //}
+                    db.SaveChanges();
+                    this.Close();
+                }
             }
         }
     }

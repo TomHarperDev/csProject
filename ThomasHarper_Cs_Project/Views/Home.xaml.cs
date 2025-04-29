@@ -63,10 +63,17 @@ namespace ThomasHarper_Cs_Project.Views
                 tbLowestItemReplenishTime.Text = lowestStockReplenishTime;
 
 
-                //populate the task side
-                //get task assinged to current user
-                //var task = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskAssignedTo == Data.CurrentUser.UserName);
+                
+                
+            }
+
+
+            //populate the task side
+            //get task assinged to current user
+            using (var db = new CargoHubEntities())
+            {
                 MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskTitle);
+                //var task = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskAssignedTo == Data.CurrentUser.UserName);
                 var task = db.CargoHubEmployeeTasks.FirstOrDefault();
                 if (task != null)
                 {
@@ -77,20 +84,6 @@ namespace ThomasHarper_Cs_Project.Views
                     tbTaskTitle.Text = "USER HAS NO TASKS";
                 }
             }
-
-            //using (var db = new CargoHubEntities())
-            //{
-            //    MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskTitle);
-            //    var task = db.CargoHubEmployeeTasks.FirstOrDefault();
-            //    if (task != null)
-            //    {
-            //        tbTaskTitle.Text = task.TaskTitle;
-            //    }
-            //    else
-            //    {
-            //        tbTaskTitle.Text = "USER HAS NO TASKS";
-            //    }
-            //}
         }
     }
 }

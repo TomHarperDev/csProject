@@ -27,10 +27,10 @@ namespace ThomasHarper_Cs_Project
         public MainWindow()
         {
             InitializeComponent();
+            addDataToDatabase();
             parentGrid.Children.Clear();
             Home home = new Home();
             parentGrid.Children.Add(home);
-            addDataToDatabase();
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

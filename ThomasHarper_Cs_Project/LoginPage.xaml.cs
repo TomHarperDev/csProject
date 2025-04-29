@@ -91,6 +91,7 @@ namespace ThomasHarper_Cs_Project
                             //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
                             Data.CurrentUser.UserName = tbUserName.Text;
 
+                            MessageBox.Show("Login sucess");
                             //once the user has been logged in, redirect them
                             MainWindow mainWindow = new MainWindow();
                             mainWindow.Show();
