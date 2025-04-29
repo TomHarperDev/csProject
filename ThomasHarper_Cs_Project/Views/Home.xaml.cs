@@ -72,7 +72,6 @@ namespace ThomasHarper_Cs_Project.Views
             //get task assinged to current user
             using (var db = new CargoHubEntities())
             {
-                MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskTitle);
                 //var task = db.CargoHubEmployeeTasks.FirstOrDefault(u => u.TaskAssignedTo == Data.CurrentUser.UserName);
                 var task = db.CargoHubEmployeeTasks.FirstOrDefault();
                 if (task != null)

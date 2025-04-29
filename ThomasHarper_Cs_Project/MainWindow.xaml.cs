@@ -124,7 +124,6 @@ namespace ThomasHarper_Cs_Project
 
                 db.SaveChanges();
 
-                MessageBox.Show(db.CargoHubEmployeeTasks.FirstOrDefault().TaskDescription);
             }
         }
     }

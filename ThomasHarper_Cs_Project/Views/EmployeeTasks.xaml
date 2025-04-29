@@ -30,7 +30,8 @@
 
             <Grid Grid.Row="1">
                 <DataGrid Name="TaskDataGrid" AutoGenerateColumns="True"
-               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          IsReadOnly="True"/>
             </Grid>
 
 
