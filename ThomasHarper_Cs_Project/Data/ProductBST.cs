@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ThomasHarper_Cs_Project.Models;
 
 namespace ThomasHarper_Cs_Project.Data
 {
@@ -42,28 +43,28 @@ namespace ThomasHarper_Cs_Project.Data
 
         public ProductBST()
         {
-            //this needs to create list of all tasks
+            //this needs to create list of all products
             //then add all items to the bst
-            //using (var db = new CargoHubEntities())
-            //{
-            //    var productList = db.CargoHubProducts.ToList();
+            using (var db = new CargoHubEntities())
+            {
+                var productList = db.CargoHubProducts.ToList();
 
-            //    foreach (var item in productList)
-            //    {
-            //        Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory, 
-            //            item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
+                foreach (var item in productList)
+                {
+                    Node nodeBeingAdded = new Node(item.ProductID, item.ProductName, item.ProductCategory,
+                        item.ProductQuantity, item.ProductCost, item.ProductReplenishTime);
 
-            //        if (this.Root == null)
-            //        {
-            //            this.Root = nodeBeingAdded;
-            //        }
-            //        else
-            //        {
-            //            this.addProductToTree(this.Root, nodeBeingAdded);
-            //        }
-            //    }
+                    if (this.Root == null)
+                    {
+                        this.Root = nodeBeingAdded;
+                    }
+                    else
+                    {
+                        this.addProductToTree(this.Root, nodeBeingAdded);
+                    }
+                }
 
-            //}
+            }
         }
 
 

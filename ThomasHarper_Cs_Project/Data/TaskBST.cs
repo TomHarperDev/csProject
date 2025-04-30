@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Xml.Linq;
+using ThomasHarper_Cs_Project.Models;
 
 namespace ThomasHarper_Cs_Project.Data
 {
@@ -41,25 +42,25 @@ namespace ThomasHarper_Cs_Project.Data
         {
             //this needs to create list of all tasks
             //then add all items to the bst
-            //using (var db = new CargoHubEntities())
-            //{
-            //    var taskList = db.CargoHubEmployeeTasks.ToList();
+            using (var db = new CargoHubEntities())
+            {
+                var taskList = db.CargoHubEmployeeTasks.ToList();
 
-            //    foreach (var item in taskList)
-            //    {
-            //        Node nodeBeingAdded = new Node(item.TaskID, item.TaskTitle, item.TaskDescription,item.TaskAssignedTo, item.TaskAssignedBy);
+                foreach (var item in taskList)
+                {
+                    Node nodeBeingAdded = new Node(item.TaskID, item.TaskTitle, item.TaskDescription, item.TaskAssignedTo, item.TaskAssignedBy);
 
-            //        if (this.Root == null)
-            //        {
-            //            this.Root = nodeBeingAdded;
-            //        }
-            //        else
-            //        {
-            //            this.addTaskToTree(this.Root, nodeBeingAdded);
-            //        }
-            //    }
-                
-            //}
+                    if (this.Root == null)
+                    {
+                        this.Root = nodeBeingAdded;
+                    }
+                    else
+                    {
+                        this.addTaskToTree(this.Root, nodeBeingAdded);
+                    }
+                }
+
+            }
         }
 
 

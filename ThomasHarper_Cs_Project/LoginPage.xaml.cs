@@ -34,17 +34,28 @@ namespace ThomasHarper_Cs_Project
             //add a user to db
             using (var db = new CargoHubEntities())
             {
-                var newUser = new CargoHubUsers()
+                var adminUser = new CargoHubUsers()
                 {
                     UserName = "admin",
                     UserPassword = "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
                     IsUserAdmin = true
                 };
-                db.CargoHubUsers.Add(newUser);
+                db.CargoHubUsers.Add(adminUser);
+                db.SaveChanges();
+
+
+                var nonadminUser = new CargoHubUsers()
+                {
+                    UserName = "nonadmin",
+                    UserPassword = "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
+                    IsUserAdmin = true
+                };
+                db.CargoHubUsers.Add(adminUser);
                 db.SaveChanges();
             }
         }
 
+        //check username is valid
         private bool usernameValidation()
         {
             if (tbUserName.Text.Length <= 15)
@@ -54,6 +65,7 @@ namespace ThomasHarper_Cs_Project
             return false;
         }
 
+        //check password is valid
         private bool passwordValidation()
         {
             //whilst the database stores passwords at a length of 64 characters, this is only after being hashed so the user just needs to enter in a suitable password length
@@ -81,8 +93,6 @@ namespace ThomasHarper_Cs_Project
                     using (var database = new CargoHubEntities())
                     {
 
-                        //var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text );
-
                         var databaseQuery = database.CargoHubUsers.FirstOrDefault(user => user.UserName == tbUserName.Text
                         && user.UserPassword == hashedPassword);
 
@@ -91,22 +101,25 @@ namespace ThomasHarper_Cs_Project
                             //ADDED IN TO ALLOW USERNAME TO BE STORED FOR ADMIN PAGE
                             Data.CurrentUser.UserName = tbUserName.Text;
 
-                            //once the user has been logged in, redirect them
+                            //once the user has been logged in, redirect them to main window
                             MainWindow mainWindow = new MainWindow();
                             mainWindow.Show();
                             this.Close();
                         }
                         else
                         {
+                            //user does not exist
                             MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
+                //error handling
                 catch (Exception ex)
                 {
                     MessageBox.Show(Convert.ToString(ex));
                 }
             }
+            //invalid credentials
             else
             {
                 MessageBox.Show("Userame must be less than 16 characters \nPassword must be less than 16 characters and have one uppercase character",

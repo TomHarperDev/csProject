@@ -39,8 +39,6 @@ namespace ThomasHarper_Cs_Project.Views
 
 
                 //get the product with the least amount of stock left
-                
-
                 foreach (var stockItem in stockItems)
                 {
                     if (lowestStock == null)
@@ -61,10 +59,6 @@ namespace ThomasHarper_Cs_Project.Views
                 tbLowestItemName.Text = lowestStockName;
                 tbLowestItemCost.Text = lowestStockCost;
                 tbLowestItemReplenishTime.Text = lowestStockReplenishTime;
-
-
-                
-                
             }
 
 
