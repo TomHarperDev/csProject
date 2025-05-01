@@ -34,6 +34,8 @@ namespace ThomasHarper_Cs_Project
             //add a user to db
             using (var db = new CargoHubEntities())
             {
+                //delete previous users from db to stop it getting filled with identical users
+                //this is only for testing purposes whilst the db is stored locally
                 db.CargoHubUsers.RemoveRange(db.CargoHubUsers);
                 db.SaveChanges();
 
