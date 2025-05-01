@@ -31,6 +31,7 @@ namespace ThomasHarper_Cs_Project
             parentGrid.Children.Clear();
             Home home = new Home();
             parentGrid.Children.Add(home);
+
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -97,33 +98,46 @@ namespace ThomasHarper_Cs_Project
         {
             using (var db = new CargoHubEntities())
             {
-                //add a task
-                var newTask = new CargoHubEmployeeTasks()
+                //check if db is empty so that it doesnt fill with items when loaded
+                if (!db.CargoHubEmployeeTasks.Any())
                 {
-                    TaskTitle = "Update",
-                    TaskDescription = "Update price: £10.00",
-                    TaskAssignedTo = "admin",
-                    TaskAssignedBy = "admin"
-                };
-                db.CargoHubEmployeeTasks.Add(newTask);
+                    //add a task
+                    var newTask = new CargoHubEmployeeTasks()
+                    {
+                        TaskTitle = "Update",
+                        TaskDescription = "Update price: £10.00",
+                        TaskAssignedTo = "admin",
+                        TaskAssignedBy = "admin"
+                    };
+                    db.CargoHubEmployeeTasks.Add(newTask);
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
 
-
-                //add a product for the task to be completed on
-                var newProduct = new CargoHubProducts()
+                //check if db is empty so that it doesnt fill with items when loaded
+                if (!db.CargoHubProducts.Any())
                 {
-                    ProductName = "Headphones",
-                    ProductCategory = "Electronics",
-                    ProductQuantity = 54,
-                    ProductCost = 15.00m,
-                    ProductReplenishTime = "1 week"
-                };
-                db.CargoHubProducts.Add(newProduct);
+                    //add a product for the task to be completed on
+                    var newProduct = new CargoHubProducts()
+                    {
+                        ProductName = "Headphones",
+                        ProductCategory = "Electronics",
+                        ProductQuantity = 54,
+                        ProductCost = 15.00m,
+                        ProductReplenishTime = "1 week"
+                    };
+                    db.CargoHubProducts.Add(newProduct);
 
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
+                
 
+
+                
+
+
+                
             }
         }
     }
