@@ -41,7 +41,7 @@ Admin Login
 * Password: "Password"
 
 Non Admin Login
-* Username: "nonAdmin"
+* Username: "nonadmin"
 * Password: "Password"
 
 Admins can access the admin page to assign tasks whilst non admins cannot.
