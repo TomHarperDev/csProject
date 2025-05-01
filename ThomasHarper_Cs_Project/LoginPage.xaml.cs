@@ -34,6 +34,11 @@ namespace ThomasHarper_Cs_Project
             //add a user to db
             using (var db = new CargoHubEntities())
             {
+                db.CargoHubUsers.RemoveRange(db.CargoHubUsers);
+                db.SaveChanges();
+
+
+
                 var adminUser = new CargoHubUsers()
                 {
                     UserName = "admin",
@@ -48,9 +53,9 @@ namespace ThomasHarper_Cs_Project
                 {
                     UserName = "nonadmin",
                     UserPassword = "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
-                    IsUserAdmin = true
+                    IsUserAdmin = false
                 };
-                db.CargoHubUsers.Add(adminUser);
+                db.CargoHubUsers.Add(nonadminUser);
                 db.SaveChanges();
             }
         }
