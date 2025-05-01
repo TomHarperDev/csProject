@@ -32,7 +32,7 @@ In order for this project to be compiled in visual studio you will need the foll
 
 
 # Installation
-Pull the "LocalDB" branch from GitHub and run it.
+Pull the "localDB" branch from GitHub and run it.
 
 
 # Usage
